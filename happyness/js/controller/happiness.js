@@ -6,7 +6,7 @@ var happinessControllers = angular.module('happinessControllers', []);
 happinessControllers.controller('HappinessCtrl', ['$scope', '$http',
     function ($scope, $http) {
         $scope.vote = function () {
-            $http.get('http://localhost:8080/happiness/hello')
+            $http.post('http://localhost:8080/happiness/vote')
                 .success(function(data, status, headers, config) {
                     alert("success" + data + " " + status + " " + headers + " " + config)
                 })
