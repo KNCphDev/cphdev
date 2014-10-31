@@ -54,7 +54,7 @@ public class JaxRsApplication extends Application {
 
     public JaxRsApplication() {
         HashSet<Class<?>> c = new HashSet<Class<?>>();
-        c.add(HappinessResource.class);
+        c.add(VoteRessource.class);
         c.add(CORSFilter.class);
         classes = Collections.unmodifiableSet(c);
     }

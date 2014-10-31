@@ -39,6 +39,7 @@
  */
 package org.glassfish.jersey.examples.helloworld.jaxrs;
 
+import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -46,23 +47,19 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Jakub Podlesak (jakub.podlesak at oracle.com)
  */
+@Singleton
 @Path("happiness")
-public class HappinessResource {
-    public static final String CLICHED_MESSAGE = "Hello World!";
+public class VoteRessource {
 
-    @GET
-    @Path("hello")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getHello() {
-        System.out.println("Hello World!");
-        return CLICHED_MESSAGE;
-    }
+    private VoteModel happyModel = new VoteModel();
 
     @POST
     @Path("vote")
-    public String addVote(String msg) {
-        System.out.println("Vote accepted: " + msg);
-        return "ok";
+    @Produces({MediaType.APPLICATION_JSON})
+    public Vote addVote() {
+        System.out.println("Vote accepted");
+        System.out.println(happyModel.getNumberOfVotes());
+        return happyModel.addVote();
     }
 
 }
