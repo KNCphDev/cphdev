@@ -1,18 +1,14 @@
-/**
- * Created by kim on 03-10-2014.
- */
 var happinessControllers = angular.module('happinessControllers', []);
 
 happinessControllers.controller('HappinessCtrl', ['$scope', '$http',
     function ($scope, $http) {
-        $scope.vote = function () {
-            $http.post('http://localhost:8080/happiness/vote')
-                .success(function(data, status, headers, config) {
-                    alert("success" + data + " " + status + " " + headers + " " + config)
+        $scope.vote = function (voteValue) {
+            $http.post('http://localhost:8080/happiness/vote', '{"voteValue":'+voteValue+'}')
+                .success(function(data) {
+                    console.log("success: " + data.voteValue + ", " + data.created)
                 })
-                .error(function(data, status, headers, config) {
-                    alert("error\n" + data + "\n" + status + "\n" + headers + "\n" + config)
+                .error(function() {
+                    console.log("error")
                 });
         }
-
     }]);

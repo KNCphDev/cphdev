@@ -6,8 +6,7 @@ import java.util.List;
 public class VoteModel {
     private final List<Vote> votes = new ArrayList<Vote>();
 
-    public Vote addVote() {
-        Vote vote = new Vote(1);
+    public Vote addVote(Vote vote) {
         votes.add(vote);
         return vote;
     }

@@ -6,6 +6,9 @@ public class Vote {
     private int voteValue;
     private final Date created = new Date();
 
+    public Vote() {
+    }
+
     public Vote(int voteValue) {
         this.voteValue = voteValue;
     }
@@ -14,6 +17,9 @@ public class Vote {
         return voteValue;
     }
 
+    public void setVoteValue(int voteValue) {
+        this.voteValue = voteValue;
+    }
 
     public Date getCreated() {
         return created;
