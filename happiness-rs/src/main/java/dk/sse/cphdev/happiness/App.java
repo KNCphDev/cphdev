@@ -37,17 +37,16 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package org.glassfish.jersey.examples.helloworld.jaxrs;
-
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.URI;
-
-import javax.ws.rs.core.UriBuilder;
-import javax.ws.rs.ext.RuntimeDelegate;
+package dk.sse.cphdev.happiness;
 
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.ext.RuntimeDelegate;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.URI;
 
 /**
  * Hello world application using only the standard JAX-RS API and lightweight HTTP server bundled in JDK.

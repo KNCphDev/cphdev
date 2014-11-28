@@ -37,12 +37,14 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package org.glassfish.jersey.examples.helloworld.jaxrs;
+package dk.sse.cphdev.happiness;
 
+import dk.sse.cphdev.happiness.api.VoteRessource;
+
+import javax.ws.rs.core.Application;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import javax.ws.rs.core.Application;
 
 /**
  * JAX-RS Application class for this example.

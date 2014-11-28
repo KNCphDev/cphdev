@@ -1,4 +1,6 @@
-package org.glassfish.jersey.examples.helloworld.jaxrs;
+package dk.sse.cphdev.happiness;
+
+import dk.sse.cphdev.happiness.model.Vote;
 
 import java.util.ArrayList;
 import java.util.List;

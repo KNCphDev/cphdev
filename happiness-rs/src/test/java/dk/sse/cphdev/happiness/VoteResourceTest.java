@@ -1,26 +1,24 @@
-package org.glassfish.jersey.examples.helloworld.jaxrs;
+package dk.sse.cphdev.happiness;
+
+import com.sun.net.httpserver.HttpServer;
+import org.junit.Test;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import com.sun.net.httpserver.HttpServer;
-
-public class HelloWorldTest {
+public class VoteResourceTest {
 
     @Test
     public void testVoteResponse() throws Exception {
         HttpServer server = App.startServer();
 
         WebTarget target = ClientBuilder.newClient().target(App.getBaseURI() + "happiness/vote");
-        String response = target.request(MediaType.APPLICATION_JSON).post(Entity.text(""), String.class);
+
+        String response = target.request().post(Entity.entity("{\"voteValue\":1}", MediaType.APPLICATION_JSON), String.class);
         assertTrue(response.contains("vote"));
         assertTrue(response.contains("created"));
 

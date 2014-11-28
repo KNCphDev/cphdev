@@ -1,16 +1,24 @@
-package org.glassfish.jersey.examples.helloworld.jaxrs;
+package dk.sse.cphdev.happiness.model;
+
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
 import java.util.Date;
 
+@Entity
 public class Vote {
     private int voteValue;
-    private final Date created = new Date();
-
+    private Date created;
+    @Id
+    private ObjectId id;
     public Vote() {
+
     }
 
     public Vote(int voteValue) {
         this.voteValue = voteValue;
+        this.created = new Date();
     }
 
     public int getVoteValue() {
