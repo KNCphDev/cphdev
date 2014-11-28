@@ -8,25 +8,20 @@ import java.util.Date;
 
 @Entity
 public class Vote {
-    private int voteValue;
-    private Date created;
     @Id
     private ObjectId id;
-    public Vote() {
+    private int voteValue;
+    private Date created = new Date();
 
+    public Vote() {
     }
 
     public Vote(int voteValue) {
         this.voteValue = voteValue;
-        this.created = new Date();
     }
 
     public int getVoteValue() {
         return voteValue;
-    }
-
-    public void setVoteValue(int voteValue) {
-        this.voteValue = voteValue;
     }
 
     public Date getCreated() {

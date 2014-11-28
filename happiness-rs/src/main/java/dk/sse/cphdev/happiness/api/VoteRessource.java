@@ -23,9 +23,11 @@ public class VoteRessource {
     @Produces({MediaType.APPLICATION_JSON})
     public Vote addVote(Vote vote) {
         MongoConnectionManager.getInstance().getDatastore().save(vote);
-        System.out.println("Number of votes: " + getVotecount());
 
+        System.out.println("Number of votes: " + getVotecount());
         System.out.println("Vote accepted: " + vote.getVoteValue());
+        System.out.println("Vote created: " + vote.getCreated());
+
         return vote;
     }
     public  long getVotecount() {
