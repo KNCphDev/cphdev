@@ -27,4 +27,13 @@ public class Vote {
     public Date getCreated() {
         return created;
     }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", voteValue=" + voteValue +
+                ", created=" + created +
+                '}';
+    }
 }

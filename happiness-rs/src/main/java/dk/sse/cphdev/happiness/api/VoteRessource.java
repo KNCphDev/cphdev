@@ -5,11 +5,9 @@ import dk.sse.cphdev.happiness.model.Vote;
 import dk.sse.cphdev.happiness.persistence.MongoConnectionManager;
 
 import javax.inject.Singleton;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Singleton
 @Path("happiness")
@@ -30,6 +28,14 @@ public class VoteRessource {
 
         return vote;
     }
+
+    @GET
+    @Path("all")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Vote> getAll() {
+        return MongoConnectionManager.getInstance().getDatastore().find(Vote.class).asList();
+    }
+
     public  long getVotecount() {
         return MongoConnectionManager.getInstance().getDatastore().getCount(Vote.class);
     }
