@@ -4,6 +4,7 @@ import com.sun.net.httpserver.HttpServer;
 import dk.sse.cphdev.happiness.model.Vote;
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,9 +14,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.List;
-
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class VoteResourceTest {
 
@@ -27,8 +25,8 @@ public class VoteResourceTest {
 
         String response = target.request().post(Entity.entity("{\"voteValue\":1}", MediaType.APPLICATION_JSON), String.class);
 
-        assertTrue(response.contains("vote"));
-        assertTrue(response.contains("created"));
+        Assert.assertTrue(response.contains("vote"));
+        Assert.assertTrue(response.contains("created"));
     }
 
     @Test
@@ -37,7 +35,7 @@ public class VoteResourceTest {
 
         List<Vote> votes = (List<Vote>)target.request().get(List.class);
 
-        assertThat(votes.size(), CoreMatchers.not(0));
+        Assert.assertThat(votes.size(), CoreMatchers.not(0));
     }
 
     @Before
