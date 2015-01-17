@@ -1,4 +1,4 @@
-package com.systematic.cphdev.happiness;
+package dk.sse.cphdev.happiness;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;

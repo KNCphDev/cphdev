@@ -1,6 +1,7 @@
 var happinessApp = angular.module('happinessApp', [
     'ngRoute',
-    'happinessControllers'
+    'happinessControllers',
+    'happinessDirectives'
 ]);
 
 happinessApp.config(['$routeProvider',

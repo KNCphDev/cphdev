@@ -1,4 +1,4 @@
-package com.systematic.cphdev.happiness.model;
+package dk.sse.cphdev.happiness.model;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
@@ -8,21 +8,32 @@ import java.util.Date;
 
 @Entity
 public class Vote {
-
     @Id
     private ObjectId id;
     private int voteValue;
-    private Date created;
+    private Date created = new Date();
 
     public Vote() {
     }
 
     public Vote(int voteValue) {
         this.voteValue = voteValue;
-        this.created = new Date();
     }
 
     public int getVoteValue() {
         return voteValue;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", voteValue=" + voteValue +
+                ", created=" + created +
+                '}';
     }
 }
