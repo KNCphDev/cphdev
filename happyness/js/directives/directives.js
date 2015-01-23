@@ -18,6 +18,9 @@ happinessDirectives.directive('graphDirective', function() {
             var width = 420,
                 barHeight = 20;
 
+            var buildTransitionDuration = 2000;
+            var fadeInTranstionDuration = 2000;
+
             // code below assume votes is sorted asc on voteCount
             var maxVoteCount = voteCountFn(votes[votes.length-1]);
 
@@ -35,14 +38,26 @@ happinessDirectives.directive('graphDirective', function() {
                 .attr("transform", function(d) { return "translate(0," + (voteValueFn(d)-1) * barHeight + ")"; });
 
             bar.append("rect")
-                .attr("width", function(d) { return barWidth(d); })
+                .attr("width", 0)
                 .attr("height", barHeight - 1);
 
             bar.append("text")
                 .attr("x", function(d) { return barWidth(d) - 3; })
                 .attr("y", barHeight / 2)
                 .attr("dy", ".35em")
+                .attr("fill-opacity", 0)
                 .text(function(d) { return voteCountFn(d); });
+
+            bar.selectAll("rect")
+                .transition()
+                .duration(buildTransitionDuration)
+                .attr("width", function(d) { return barWidth(d); });
+
+            bar.selectAll("text")
+                .transition()
+                .delay(buildTransitionDuration)
+                .duration(fadeInTranstionDuration)
+                .attr("fill-opacity", 1);
         }
     };
 });
