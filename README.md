@@ -13,3 +13,8 @@
 1. Install MongoDB (http://www.mongodb.org/)
 2. Opret bibliotek f.eks. c:\cphdev\data
 3. Start mongodb via mongod --dbpath=c:\cphdev\data
+
+
+## Suggestions
+1. https://www.openshift.com/ (hosting)
+2. travis-ci.org
