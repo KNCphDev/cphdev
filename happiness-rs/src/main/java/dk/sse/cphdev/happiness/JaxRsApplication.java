@@ -41,6 +41,7 @@ package dk.sse.cphdev.happiness;
 
 import dk.sse.cphdev.happiness.api.VoteRessource;
 
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.Collections;
 import java.util.HashSet;
@@ -51,6 +52,7 @@ import java.util.Set;
  *
  * @author Martin Matula (martin.matula at oracle.com)
  */
+@ApplicationPath("/*")
 public class JaxRsApplication extends Application {
     private final Set<Class<?>> classes;
 
