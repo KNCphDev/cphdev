@@ -21,21 +21,31 @@ public class VoteResourceTest {
 
     @Test
     public void testVoteResponse() throws Exception {
-        WebTarget target = ClientBuilder.newClient().target(App.getBaseURI() + "happiness/vote");
-
-        String response = target.request().post(Entity.entity("{\"voteValue\":1}", MediaType.APPLICATION_JSON), String.class);
+        String response = addVote();
 
         Assert.assertTrue(response.contains("vote"));
         Assert.assertTrue(response.contains("created"));
     }
 
+
     @Test
     public void testGetAllVotes() throws IOException {
-        WebTarget target = ClientBuilder.newClient().target(App.getBaseURI() + "happiness/all");
-
-        List<Vote> votes = (List<Vote>)target.request().get(List.class);
+        addVote();
+        List<Vote> votes = getAllVotes();
 
         Assert.assertThat(votes.size(), CoreMatchers.not(0));
+    }
+
+    private String addVote() {
+        WebTarget target = ClientBuilder.newClient().target(App.getBaseURI() + "happiness/vote");
+
+        return target.request().post(Entity.entity("{\"voteValue\":1}", MediaType.APPLICATION_JSON), String.class);
+    }
+
+    private List<Vote> getAllVotes() {
+        WebTarget target = ClientBuilder.newClient().target(App.getBaseURI() + "happiness/all");
+
+        return (List<Vote>)target.request().get(List.class);
     }
 
     @Before
