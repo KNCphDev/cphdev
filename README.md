@@ -15,6 +15,9 @@
 2. Create data directory (e.g. *c:\cphdev\data\*)
 3. Start MongoDB with *mongod --dbpath=c:\cphdev\data*
 
+## Run backend project
+ 1. cd happiness-rs
+ 2. mvn exec:java
 
 ## Suggestions
 1. https://www.openshift.com/ (hosting)
