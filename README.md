@@ -1,18 +1,19 @@
 # Prerequisites and howto
 
-1. install node js
-2. start node js command prompt
-3. Run npm install
-   (If you get errors relating to phantomjs install, please run "npm config set strict-ssl false".)
-4. Move to project directory and start web server (npm start)
+
+## 1. install Node.js
+1. Download from http://nodejs.org/
+2. Start _Node.js Command Prompt_ through the Windows Start Menu. (Alternatively it can be run from an ordinary command prompt with added path / environment settings.)
+3. Run the following command: *npm install*
+(If you get errors relating to phantomjs install, please run "npm config set strict-ssl false".)
+4. Move to project directory and start the web server with *npm start*
 5. View page in browser - localhost:8000
 6. To run e2e-tests - npm run protractor
 
-
-## MongoDB
-1. Install MongoDB (http://www.mongodb.org/)
-2. Opret bibliotek f.eks. c:\cphdev\data
-3. Start mongodb via mongod --dbpath=c:\cphdev\data
+## 2. Install MongoDB
+1. Download MongoDB from http://www.mongodb.org/
+2. Create data directory (e.g. *c:\cphdev\data\*)
+3. Start MongoDB with *mongod --dbpath=c:\cphdev\data*
 
 
 ## Suggestions
